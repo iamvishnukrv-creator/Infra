@@ -7,7 +7,7 @@ modules "vpc" {
 }
 
 modules "ec2" {
-    source = "../../Moddules.ec2"
+    source = "../../Modules.ec2"
     ec2_ami_id = "ami-02dd44faa40720bb8"
     ec2_instance_type = "t3.micro"
     ec2_instance_count = 1
