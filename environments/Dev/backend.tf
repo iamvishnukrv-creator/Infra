@@ -1,4 +1,4 @@
-modules "vpc" {
+module "vpc" {
     source = "../../Modules/vpc"
     vpc_cidr_block = "10.0.0.0/16"
     pub_cidr-block = "10.0.1.0/24"
@@ -6,7 +6,7 @@ modules "vpc" {
     env            ="dev" 
 }
 
-modules "ec2" {
+module "ec2" {
     source = "../../Modules/ec2"
     ec2_ami_id = "ami-02dd44faa40720bb8"
     ec2_instance_type = "t3.micro"
