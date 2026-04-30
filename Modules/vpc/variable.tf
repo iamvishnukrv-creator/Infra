@@ -1,19 +1,19 @@
 variable "env" {
   type        = string
-  description = "which environment are we gonna to create(Dev,Qa,Prod)"
+  description = "What Env we are creating (dev, qa, production)"
 }
 
-variable "vpc_cidr_block" {
+variable "vpc_cidr" {
   type        = string
-  description = "vpc_cidr_block"
+  description = "VPC CIDR"
 }
 
-variable "pub_cidr-block" {
+variable "subnet_cidr" {
   type        = string
-  description = "pub_cidr-block"
+  description = "SUBNET CIDR"
 }
 
 variable "subnet_az" {
   type        = string
-  description = "subnet_az"
+  description = "AZ of the Subnet"
 }

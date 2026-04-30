@@ -1,28 +1,23 @@
-resource "aws_vpc" "main" {
-  cidr_block       = var.vpc_cidr_block
+resource "aws_vpc" "myvpc" {
+  cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
 
   tags = {
-        Name = "${var.env}-vpc"
-        Env  =var.env
-    }
- 
+    Name = "${var.env}-vpc"
+  }
 }
 
-resource "aws_subnet" "public_subnet" {
-vpc_id     = aws_vpc.main.id
-cidr_block = var.pub_cidr-block
-availability_zone = var.subnet_az
+resource "aws_subnet" "main" {
+  vpc_id            = aws_vpc.myvpc.id
+  cidr_block        = var.subnet_cidr
+  availability_zone = var.subnet_az
 
- tags = {
-        Name = "${var.env}-subnet"
-        Env  =var.env
-    }
-
+  tags = {
+    Name = "${var.env}-subnet"
+  }
 }
 
-
-output subnet_id {
-  value       = "aws_subnet.public_subnet.id"
-  description = "The subnet which my EC2 will be created"
+output "subnet_id" {
+  value       = aws_subnet.main.id
+  description = "The Subnet which my EC2 will be created"
 }
