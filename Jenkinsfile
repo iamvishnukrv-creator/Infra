@@ -22,6 +22,12 @@ pipeline {
         }
     }
 
+    stage('Network Test') {
+    steps {
+        sh 'curl -I https://registry.terraform.io'
+    }
+}
+
     stage ('Terraform plan') {
         steps {
             dir ("${TF_WORKDIR}") {
